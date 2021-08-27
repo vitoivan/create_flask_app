@@ -15,4 +15,4 @@ move:
 
 alias:
 	@echo "\n++++++++ For create an alias, put this code on your .zshrc or .bashrc ++++++++++"
-	@echo "alias cpya='$(HOME)/$(SRC)/run.sh'"
+	@echo "alias createpy='$(HOME)/$(SRC)/run.sh'"
