@@ -4,7 +4,7 @@ An easy way to create my python project
 ## Setup
 
 1. `clone this repo`
-2. In repo file, run `make`
+2. In repo directory, run `make`
 3. `put the alias in your `.zshrc` or `.bashrc` file
 
 ### Alias
