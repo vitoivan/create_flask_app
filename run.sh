@@ -15,6 +15,7 @@ echo "... Starting \".venv\($1)\""
 python -m venv .venv && source ./.venv/bin/activate
 
 echo "... Installing the dependencies"
+pip install --upgrade pip
 pip install -q $FLAGS
 
 echo '... Creating "requirements.txt"'
@@ -25,6 +26,9 @@ cat $HOME/$SRC_FOLDER/gitignore > .gitignore
 
 echo '... Creating ".env"'
 cat $HOME/$SRC_FOLDER/env > .env
+
+echo '... Creating "setup.cfg"'
+cat $HOME/$SRC_FOLDER/setup > setup.cfg
 
 echo '... Setup "app" and "tests" folders'
 touch app/__init__.py
