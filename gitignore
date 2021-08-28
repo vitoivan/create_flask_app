@@ -9,3 +9,6 @@ app/database/**
 
 #Flake8 config:
 setup.cfg
+
+#My project/personal configuration:
+
