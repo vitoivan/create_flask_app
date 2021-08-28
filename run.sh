@@ -4,21 +4,25 @@
 # T = Basic Flask + TestProject 
 
 TYPE="B"
-FLAGS="flask environs ujson pytest"
+FLAGS="flask environs ujson pytest flake8"
 SRC_FOLDER=".setup_python_project"
 
 echo "---------- Starting Project ----------"
 
-echo "... Creating Folder ($1)"
+echo "... Creating Folders ($1)"
 
-mkdir $(pwd)/$1 && cd $(pwd)/$1
+mkdir $(pwd)/$1
+mkdir $(pwd)/$1/app
+mkdir $(pwd)/$1/tests
+cd $(pwd)/$1
 
-echo "... Starting venv ($1)"
+echo "... Starting \".venv\" ($1)"
 
-python -m venv venv && source venv/bin/activate
+python -m venv .venv && source ./.venv/bin/activate
 
 echo "... Installing Dependencies"
 
+pip install --upgrade pip
 pip install -q $FLAGS
 
 echo "... Creating requirements.txt"
@@ -33,12 +37,17 @@ echo "... Creating .env"
 
 cat $HOME/$SRC_FOLDER/env > .env
 
-echo "... Creating app folder"
-
-mkdir app
-
 echo "... Setup app"
 
 touch app/__init__.py
+touch app/main.py
+touch app/*/__init__.py
+touch tests/__init__.py
 
-echo "----------- Setup finished, have a good coding time :) -----------"
+#(verificar se o git está instalado)
+
+#se sim:
+git init && git add . && git checkout -b main && git commit -m "Initial commit" && git checkout -b developer
+
+#se não:
+echo "----------- Setup finished, have a good coding time :) | #happyCoding -----------"
