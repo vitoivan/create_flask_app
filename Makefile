@@ -1,6 +1,5 @@
 SRC = .setup_python_project
 FILES = gitignore env run.sh
-DEFSHELL = .bashrc
 
 all: src move alias
 
