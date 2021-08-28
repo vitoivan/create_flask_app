@@ -1,6 +1,5 @@
 SRC = .setup_python_project
 FILES = gitignore env run.sh
-DEFSHELL = .bashrc
 
 all: src move alias
 
@@ -14,5 +13,5 @@ move:
 	@echo "Done!"
 
 alias:
-	@echo "\n++++++++ For create an alias, put this code on your .zshrc or .bashrc ++++++++++"
+	@echo "\n++++++++ For create an alias, put this code on your \"~/.zshrc\", \"~/.bashrc\" or \"~/.bash_aliases\" ++++++++++"
 	@echo "alias createpy='$(HOME)/$(SRC)/run.sh'"
