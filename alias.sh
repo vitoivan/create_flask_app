@@ -1,14 +1,15 @@
 #!/bin/bash
 
 ALIAS_NAME='createpy'
-ALIAS="alias $ALIAS_NAME='$HOME/.setup_python_project/run.sh'"
+SRC='.setup_python_project'
+
+ALIAS="alias $ALIAS_NAME='$HOME/$SRC/run.sh'"
 SHELLRC=".bashrc"
 
 if [ "$SHELL" == "/bin/zsh" ]; then
 	SHELLRC=".zshrc"
 fi
 
-if [ `alias | grep $ALIAS_NAME | wc -l` == 0 ]; then
+if [ `alias | grep $ALIAS_NAME | wc -l` == "$ALIAS_NAME='$HOME/$SRC/run.sh" ]; then
 	echo $ALIAS >> $HOME/$SHELLRC
 fi
-source $HOME/$SHELLRC

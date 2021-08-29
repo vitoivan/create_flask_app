@@ -1,5 +1,5 @@
 SRC = .setup_python_project
-FILES = gitignore env run.sh initapp
+F_DIR = files
 
 all: src move alias finished
 
@@ -7,9 +7,9 @@ src:
 	@echo "Creating directory $(SRC) ..."
 	@mkdir -p $(HOME)/$(SRC);
 	@echo "Directory created in $(HOME)/$(SRC)"
-move:
+move: $(F_DIR)
 	@echo "Moving files to $(SRC)..."
-	@cp $(FILES) $(HOME)/$(SRC)
+	@cp ./$(F_DIR)/* $(HOME)/$(SRC)
 	@echo "Done!"
 
 alias:
