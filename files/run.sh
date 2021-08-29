@@ -60,7 +60,7 @@ if [ "$1" == "" ]; then
 	exit 1
 fi
 
-DST="$0"
+DST=$1
 echo "---------- Starting Project in ($MODE) ----------"
 
 echo "... Creating the folders"
