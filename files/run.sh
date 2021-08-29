@@ -5,8 +5,9 @@ SRC_FOLDER=".setup_flask_project"
 
 # All libs where will be installed per default
 DEFAULT_FLAGS="flask environs ujson"
-TEST_FLAGS="$DEFAULT_FLAGS pytest"
+BASIC_FLAGS="flask environs"
 FLAGS="$DEFAULT_FLAGS"
+TEST_FLAGS="$DEFAULT_FLAGS pytest"
 
 # Folder that will be created
 DST="cfa_project"
@@ -25,6 +26,7 @@ helper_message()
 	echo "-t, --test                create and setup a default test environment"
 	echo "-b, --basic               create just an basic structure for a flask project"
 	echo "-l, --log                 create an error file log"
+	echo "-d, --default             default mode, this mode create a structure based on the Flask Factory pattern"
 }
 
 for arg in "$@"
@@ -37,11 +39,16 @@ do
 		;;
 	-b|--basic)
 		MODE="BASIC MODE"
-		FLAGS="$TEST_FLAGS"
+		FLAGS="$BASIC_FLAGS"
 		shift
 		;;
 	-l|--log)
 		LOG=true
+		shift
+		;;
+	-d|--default)
+		FLAGS="$DEFAULT_FLAGS"
+		MODE="DEFAULT MODE"
 		shift
 		;;
 	-h|--help)
