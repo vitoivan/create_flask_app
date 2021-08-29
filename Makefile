@@ -1,4 +1,4 @@
-SRC = .setup_python_project
+SRC = .setup_flask_project
 F_DIR = files
 
 all: src move alias finished

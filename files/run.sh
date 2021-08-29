@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory name of this template (Will be in $HOME directory)
-SRC_FOLDER=".setup_python_project"
+SRC_FOLDER=".setup_flask_project"
 
 # All libs where will be installed per default
 DEFAULT_FLAGS="flask environs ujson"
