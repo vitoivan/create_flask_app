@@ -1,7 +1,7 @@
 SRC = .setup_python_project
-FILES = gitignore env run.sh
+FILES = gitignore env run.sh initapp
 
-all: src move alias
+all: src move alias finished
 
 src:
 	@echo "Creating directory $(SRC) ..."
@@ -13,5 +13,9 @@ move:
 	@echo "Done!"
 
 alias:
-	@echo "\n++++++++ For create an alias, put this code on your \"~/.zshrc\", \"~/.bashrc\" or \"~/.bash_aliases\" ++++++++++"
-	@echo "alias createpy='$(HOME)/$(SRC)/run.sh'"
+	@echo "Creating alias ..."
+	@bash ./alias.sh
+	@echo "Done!"
+
+finished:
+	@echo "Installation finished"
