@@ -83,7 +83,9 @@ cat $HOME/$SRC_FOLDER/gitignore > .gitignore
 cat $HOME/$SRC_FOLDER/env > .env
 cat $HOME/$SRC_FOLDER/initapp > app/__init__.py
 touch app/main.py
-touch tests/__init__.py
+if [ "$MODE" == "TEST MODE" ]; then
+	touch tests/__init__.py
+fi
 
 echo "... Configing the git repository"
 git init -q
