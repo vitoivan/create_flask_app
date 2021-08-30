@@ -13,7 +13,7 @@ An easy way to create my flask projects
 1. Clone this repository or click [here](https://github.com/vitoivan/create_flask_app/archive/refs/heads/master.zip) to download it;
    1. If your made the above download, unzip it somewhere in your system; and
    2. Install the `git` and `make` in your system.
-2. Open the **_create_flask_app** folder cloned/unzipped;
+2. Open the **create_flask_app** folder cloned/unzipped;
 3. run `make` in there;
 4. Source your updated file `or` restart your terminal:
    1. `source ~/.bashrc` or `source ~/.zshrc` or `source ~/.bash_aliases`
