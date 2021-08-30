@@ -6,7 +6,8 @@ An easy way to create my flask projects
 
 ### _(if needed)_ Update `gitignore` and `env` files:
 
-- Modify the files above with your project/personal configuration.
+1. in the folder `/files`:
+   1. Modify the files above with your project/personal configuration.
 
 ## Setup:
 
@@ -18,11 +19,14 @@ An easy way to create my flask projects
 4. Source your updated file `or` restart your terminal:
    1. `source ~/.bashrc` or `source ~/.zshrc` or `source ~/.bash_aliases`
 
-- PS: If you have some problem to run, you can also copy the alias to your rc file  
-`alias cfa='f(){ $HOME/.setup_flask_project/run.sh $@; }; f'`  
-and repeat the step 4.
+- Rmk: If you have some problem to run, you can also copy the alias to your rc file
+  `alias cfa='f(){ $HOME/.setup_flask_project/run.sh $@; }; f'`
+  and repeat the step 4.
 
 ## Basic Usage:
-- `cfa <project_name>`
 
-## [Documentation](https://github.com/vitoivan/create_flask_app/wiki)
+- `cfa [OPTIONS] <project_name>`
+
+## Documentation
+
+- [Home](https://github.com/vitoivan/create_flask_app/wiki)
