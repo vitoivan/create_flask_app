@@ -67,19 +67,24 @@ if [ "$1" == "" ]; then
 	exit 1
 fi
 
-DST="$1"
-echo $DST
+#Get the destination and current folders:
+DST=$1
+PWD=$(pwd)
+
 echo "---------- Starting Project in ($MODE) ----------"
+echo "In $PWD/$DST:"
+
 
 echo "... Creating the folders"
-mkdir $(pwd)/"$DST"
-mkdir $(pwd)/"$DST"/app
-if [ "$MODE" == "TEST MODE" ]; then
-	mkdir $(pwd)/"$DST"/tests
-fi
-cd $(pwd)/"$DST"
+mkdir "$PWD/$DST"
+mkdir "$PWD/$DST/app"
 
-echo "... Starting \".venv\($DST)\""
+if [ "$MODE" == "TEST MODE" ]; then
+	mkdir "$PWD/$DST/tests"
+fi
+cd "$PWD/$DST"
+
+echo "... Starting \".venv\" in $PWD/$DST/.venv"
 python -m venv .venv && source ./.venv/bin/activate
 
 echo "... Installing the dependencies"
