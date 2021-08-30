@@ -67,16 +67,17 @@ if [ "$1" == "" ]; then
 	exit 1
 fi
 
-DST=$1
+DST="$1"
+echo $DST
 echo "---------- Starting Project in ($MODE) ----------"
 
 echo "... Creating the folders"
-mkdir $(pwd)/$DST
-mkdir $(pwd)/$DST/app
+mkdir $(pwd)/"$DST"
+mkdir $(pwd)/"$DST"/app
 if [ "$MODE" == "TEST MODE" ]; then
-	mkdir $(pwd)/$DST/tests
+	mkdir $(pwd)/"$DST"/tests
 fi
-cd $(pwd)/$DST
+cd $(pwd)/"$DST"
 
 echo "... Starting \".venv\($DST)\""
 python -m venv .venv && source ./.venv/bin/activate
