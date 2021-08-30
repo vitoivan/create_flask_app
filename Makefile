@@ -1,17 +1,21 @@
-SRC = .setup_python_project
-FILES = gitignore env run.sh
+SRC = .setup_flask_project
+F_DIR = files
 
-all: src move alias
+all: src move alias finished
 
 src:
 	@echo "Creating directory $(SRC) ..."
 	@mkdir -p $(HOME)/$(SRC);
 	@echo "Directory created in $(HOME)/$(SRC)"
-move:
+move: $(F_DIR)
 	@echo "Moving files to $(SRC)..."
-	@cp $(FILES) $(HOME)/$(SRC)
+	@cp ./$(F_DIR)/* $(HOME)/$(SRC)
 	@echo "Done!"
 
 alias:
-	@echo "\n++++++++ For create an alias, put this code on your \"~/.zshrc\", \"~/.bashrc\" or \"~/.bash_aliases\" ++++++++++"
-	@echo "alias createpy='$(HOME)/$(SRC)/run.sh'"
+	@echo "Creating alias ..."
+	@bash ./alias.sh
+	@echo "Done!"
+
+finished:
+	@echo "Installation finished"
