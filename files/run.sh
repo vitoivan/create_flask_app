@@ -5,9 +5,9 @@ SRC_FOLDER=".setup_flask_project"
 
 # All libs where will be installed per default
 DEFAULT_FLAGS="flask environs ujson"
-BASIC_FLAGS="flask environs"
+BASIC_FLAGS="flask"
+TEST_FLAGS="pytest"
 FLAGS="$DEFAULT_FLAGS"
-TEST_FLAGS="$DEFAULT_FLAGS pytest"
 
 # Folder that will be created
 DST="cfa_project"
@@ -15,6 +15,7 @@ DST="cfa_project"
 # Possible Log mode
 LOG=false
 MODE="DEFAULT MODE"
+APP_MODE="default_application"
 
 helper_message()
 {
@@ -32,13 +33,9 @@ helper_message()
 for arg in "$@"
 do
 	case $arg in
-	-t|--test)
-		MODE="TEST MODE"
-		FLAGS="$TEST_FLAGS"
-		shift
-		;;
 	-b|--basic)
 		MODE="BASIC MODE"
+		APP_MODE="basic_application"
 		FLAGS="$BASIC_FLAGS"
 		shift
 		;;
@@ -58,6 +55,17 @@ do
 	esac
 done
 
+for arg in "$@"
+do
+	case $arg in
+	-t|--test)
+		MODE="TEST MODE"
+		FLAGS="$FLAGS $TEST_FLAGS"
+		shift
+		;;
+	esac
+done
+
 if [ "$LOG" == "true" ]; then
 	exec 2> cfa.log
 fi
@@ -68,14 +76,13 @@ if [ "$1" == "" ]; then
 fi
 
 DST="$1"
-echo $DST
 echo "---------- Starting Project in ($MODE) ----------"
 
 echo "... Creating the folders"
-mkdir $(pwd)/"$DST"
-mkdir $(pwd)/"$DST"/app
+mkdir "$(pwd)/$DST"
+mkdir "$(pwd)/$DST/app"
 if [ "$MODE" == "TEST MODE" ]; then
-	mkdir $(pwd)/"$DST"/tests
+	mkdir "$(pwd)/$DST/tests"
 fi
 cd $(pwd)/"$DST"
 
@@ -88,9 +95,10 @@ pip install -q $FLAGS
 echo '... Creating Files'
 pip freeze -l > requirements.txt
 cat $HOME/$SRC_FOLDER/gitignore > .gitignore
-cat $HOME/$SRC_FOLDER/env > .env
-cat $HOME/$SRC_FOLDER/initapp > app/__init__.py
-touch app/main.py
+if [ "$MODE" != "BASIC MODE" ]; then
+	cat $HOME/$SRC_FOLDER/env > .env
+fi
+cp -r $HOME/$SRC_FOLDER/$APP_MODE/* ./app
 if [ "$MODE" == "TEST MODE" ]; then
 	touch tests/__init__.py
 fi

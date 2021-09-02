@@ -9,7 +9,7 @@ src:
 	@echo "Directory created in $(HOME)/$(SRC)"
 move: $(F_DIR)
 	@echo "Moving files to $(SRC)..."
-	@cp ./$(F_DIR)/* $(HOME)/$(SRC)
+	@cp -r ./$(F_DIR)/* $(HOME)/$(SRC)
 	@echo "Done!"
 
 alias:
