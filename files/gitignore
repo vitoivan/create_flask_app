@@ -1,6 +1,6 @@
 #Python and default config files
 .vscode/
-.mypy_cache/**
+.__py_cache__/**
 **/__pycache__/
 .venv/
 cache/
