@@ -4,7 +4,7 @@
 SRC_FOLDER=".setup_flask_project"
 
 # All libs where will be installed per default
-DEFAULT_FLAGS="flask environs python-dotenv ujson flask-migrate flask_sqlalchemy sqlalchemy_utils psycopg2-binary"
+DEFAULT_FLAGS="flask environs python-dotenv ujson"
 BASIC_FLAGS="flask"
 TEST_FLAGS="pytest"
 ORM_FLAGS="flask python-dotenv ujson flask-migrate flask_sqlalchemy sqlalchemy_utils psycopg2-binary Flask-HTTPAuth flask-jwt-extended"
