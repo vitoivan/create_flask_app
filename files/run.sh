@@ -28,6 +28,7 @@ helper_message()
 	echo "-b, --basic               create just an basic structure for a flask project"
 	echo "-l, --log                 create an error file log"
 	echo "-d, --default             default mode, this mode create a structure based on the Flask Factory pattern"
+	echo "-o, --orm                 orm mode, this mode create a structure based on the Flask Factory using ORM"
 }
 
 for arg in "$@"
@@ -48,6 +49,12 @@ do
 		MODE="DEFAULT MODE"
 		shift
 		;;
+	-o | --orm)
+	FLAGS="$ORM_FLAGS"
+	MODE="ORM MODE"
+	APP_MODE="orm_application"
+	shift
+	;;
 	-h|--help)
 		helper_message
 		exit 1
