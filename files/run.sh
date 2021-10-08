@@ -4,9 +4,10 @@
 SRC_FOLDER=".setup_flask_project"
 
 # All libs where will be installed per default
-DEFAULT_FLAGS="flask environs ujson"
+DEFAULT_FLAGS="flask environs python-dotenv ujson"
 BASIC_FLAGS="flask"
 TEST_FLAGS="pytest"
+ORM_FLAGS="flask python-dotenv ujson flask-migrate flask_sqlalchemy sqlalchemy_utils psycopg2-binary Flask-HTTPAuth flask-jwt-extended"
 FLAGS="$DEFAULT_FLAGS"
 
 # Folder that will be created
@@ -28,6 +29,7 @@ helper_message()
 	echo "-b, --basic               create just an basic structure for a flask project"
 	echo "-l, --log                 create an error file log"
 	echo "-d, --default             default mode, this mode create a structure based on the Flask Factory pattern"
+	echo "-o, --orm                 orm mode, this mode create a structure based on the Flask Factory using ORM"
 }
 
 for arg in "$@"
@@ -48,6 +50,12 @@ do
 		MODE="DEFAULT MODE"
 		shift
 		;;
+	-o | --orm)
+	FLAGS="$ORM_FLAGS"
+	MODE="ORM MODE"
+	APP_MODE="orm_application"
+	shift
+	;;
 	-h|--help)
 		helper_message
 		exit 1
