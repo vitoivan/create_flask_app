@@ -1,7 +1,0 @@
-FLASK_APP=app
-FLASK_ENV=development
-DB_NAME=
-DB_USER=
-DB_PWD=
-DB_URI=postgresql://${DB_USER}:${DB_PWD}@localhost:5432/${DB_NAME}
-SECRET_KEY=
