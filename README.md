@@ -1,6 +1,6 @@
 # Create Flask App
 
-An easy way to create my flask projects
+An easy way to create flask projects
 
 ## Customization:
 
