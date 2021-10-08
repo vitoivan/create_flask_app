@@ -4,7 +4,7 @@ An easy way to create my flask projects
 
 ## Customization:
 
-### _(if needed)_ Update `gitignore` and `env` files:
+### _(if needed)_ you can change whatever you want on `files` folder:
 
 - Modify the files above with your project/personal configuration.
 
